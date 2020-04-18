@@ -1,4 +1,5 @@
 from random import randint
+import re
 
 def initiate(dir): #Da una lista de los datos del directorio
     with open(dir,"r") as file:
@@ -107,6 +108,7 @@ def getListBin(lista):
         number = randint(0,len(letras)-1)
         palabra = palabra + letras[number]
         i+=1
+    palabra = re.sub("ccc","cvc",palabra)
     return palabra
 
 #Crea una palabra y la devuelve si cumple con la estructura bin de las palabras
@@ -127,12 +129,19 @@ def generateWordOnBin(lista,iterations):
             if (into=="1"):
                 i=0
             else:
-                continua=False
+                continua=False 
     return palabra
-        
 
 
 if __name__=="__main__":
     #print(generateWord(initiate(r"C:\\Users\\Geniusbat\\Documents\\Proyectos\\Programación\\LogiLingua\\test.txt")))
-
-    print(generateWordOnBin(initiate(r"C:\\Users\\Geniusbat\\Documents\\Proyectos\\Programación\\LogiLingua\\test.txt"),10))
+    print("Mamá: ")
+    print(generateWordOnBin(initiate(r"E:\Proyectos\Programación\LogiLingua\mama.txt"),1000))
+    print("Hola: ")
+    print(generateWordOnBin(initiate(r"E:\Proyectos\Programación\LogiLingua\hola.txt"),1000))
+    print("Piedra: ")
+    print(generateWordOnBin(initiate(r"E:\Proyectos\Programación\LogiLingua\piedra.txt"),1000))
+    print("Manzana: ")
+    print(generateWordOnBin(initiate(r"E:\Proyectos\Programación\LogiLingua\manzana.txt"),1000))
+    print("Malo: ")
+    print(generateWordOnBin(initiate(r"E:\Proyectos\Programación\LogiLingua\malo.txt"),1000))
